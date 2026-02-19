@@ -22,7 +22,7 @@ export default function PaketOutboundPage() {
         subtitle="Pilih paket outbound yang sesuai dengan kebutuhan tim Anda. Dari paket half day hingga full camping, kami siap melayani."
         showCta={true}
       />
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+      <section id="packages" className="mx-auto max-w-6xl scroll-mt-20 px-4 py-16 sm:px-6 lg:px-8">
         {/* Paket Outbound Bandung */}
         <div className="mb-16">
           <h2 className="mb-8 text-2xl font-bold text-foreground">

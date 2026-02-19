@@ -25,7 +25,7 @@ export function Navbar() {
             href="/"
             className="text-xl font-bold tracking-tight text-foreground transition-colors hover:text-emerald-700 dark:hover:text-emerald-400"
           >
-            Zodra Outing
+            Zodra Adventure
           </Link>
 
           {/* Desktop nav */}

@@ -13,7 +13,7 @@ import { outboundPackages, teamBuildingPackages } from "@/lib/packages";
 export default function Home() {
   return (
     <>
-      <Hero />
+      <Hero highlightKeyword="Offroad" />
       <ClientLogos clients={clients} />
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="mb-12 flex flex-col items-center justify-between gap-4 sm:flex-row">

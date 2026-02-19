@@ -1,36 +1,62 @@
-import Link from "next/link";
+import { Fragment } from "react";
+import { LihatPaketButton } from "@/components/lihat-paket-button";
 import { WhatsAppCta } from "@/components/whatsapp-cta";
 
 interface HeroProps {
   title?: string;
   subtitle?: string;
   showCta?: boolean;
+  /** Word to highlight in emerald (e.g. "Offroad") */
+  highlightKeyword?: string;
 }
 
 export function Hero({
-  title = "Petualangan Outbound Tak Terlupakan",
-  subtitle = "Rasakan pengalaman outbound yang mendidik dan menyenangkan bersama tim Anda. Kami menyediakan paket outbound profesional untuk perusahaan, sekolah, dan komunitas.",
+  title = "Bikin Tim Makin Kompak dengan Petualangan Offroad",
+  subtitle = "Lupakan penat kantor sejenak. Rasakan sensasi menerjang hutan pinus Cikole dengan Land Rover 4x4. Pengalaman healing seru yang menyatukan tim Anda kembali.",
   showCta = true,
+  highlightKeyword,
 }: HeroProps) {
+  const renderTitle = () => {
+    if (!highlightKeyword || !title.includes(highlightKeyword)) {
+      return title;
+    }
+    const parts = title.split(highlightKeyword);
+    return parts.map((part, i) => (
+      <Fragment key={i}>
+        {part}
+        {i < parts.length - 1 && (
+          <span className="text-emerald-400">{highlightKeyword}</span>
+        )}
+      </Fragment>
+    ));
+  };
   return (
-    <section className="relative overflow-hidden bg-linear-to-b from-primary/5 via-background to-background">
-      <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
-        <div className="mx-auto max-w-3xl text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            {title}
+    <section className="relative h-[75vh] min-h-[400px] overflow-hidden bg-neutral-800">
+      {/* Video background - autoplay, muted, no controls */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 h-full w-full object-cover"
+        aria-hidden
+      >
+        <source src="/video/zodra.mp4" type="video/mp4" />
+      </video>
+      {/* Overlay for readability (40–50% for accessibility) */}
+      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 flex flex-col items-center justify-center px-4 text-center sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl">
+          <h1 className="text-4xl font-bold tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] sm:text-5xl lg:text-6xl">
+            {renderTitle()}
           </h1>
-          <p className="mt-6 text-lg leading-8 text-muted-foreground">
+          <p className="mt-6 text-lg font-medium leading-8 text-white/90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             {subtitle}
           </p>
           {showCta && (
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <WhatsAppCta variant="button" />
-              <Link
-                href="/paket-outbound"
-                className="inline-flex items-center rounded-full border-2 border-primary px-8 py-4 text-base font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
-              >
-                Lihat Paket
-              </Link>
+              <WhatsAppCta variant="button" message="Halo, saya tertarik dengan layanan outbound Zodra Outing. Bisa info lebih detail?">Konsultasi Gratis via WhatsApp</WhatsAppCta>
+              <LihatPaketButton />
             </div>
           )}
         </div>
