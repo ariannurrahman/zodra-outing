@@ -27,6 +27,12 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
+export function generateStaticParams() {
+  return Object.keys(packages).map((slug) => ({ slug }));
+}
+
+export const dynamicParams = false;
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const pkg = packages[slug];

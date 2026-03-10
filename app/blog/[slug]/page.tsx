@@ -24,6 +24,12 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
+export function generateStaticParams() {
+  return Object.keys(posts).map((slug) => ({ slug }));
+}
+
+export const dynamicParams = false;
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = posts[slug];
