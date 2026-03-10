@@ -21,7 +21,7 @@ export function Footer() {
               href="/"
               className="text-xl font-bold tracking-tight text-foreground"
             >
-              Zodra Outing
+              Zodra Adventure
             </Link>
             <p className="mt-2 max-w-sm text-sm text-muted-foreground">
               Penyedia layanan outing dan outbound Bandung profesional untuk
@@ -47,7 +47,7 @@ export function Footer() {
         </div>
         <div className="mt-12 border-t border-border pt-8">
           <p className="text-center text-sm text-muted-foreground">
-            © {currentYear} Zodra Outing. All rights reserved.
+            © {currentYear} Zodra Adventure. All rights reserved.
           </p>
         </div>
       </div>

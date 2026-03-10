@@ -20,8 +20,8 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Zodra Outing | Outing & Outbound Bandung Profesional",
-    template: "%s | Zodra Outing",
+    default: "Zodra Adventure | Outing & Outbound Bandung Profesional",
+    template: "%s | Zodra Adventure",
   },
   description: siteConfig.description,
   keywords: siteConfig.keywords,
@@ -29,12 +29,12 @@ export const metadata: Metadata = {
     type: "website",
     locale: siteConfig.locale,
     siteName: siteConfig.name,
-    title: "Zodra Outing | Outing & Outbound Bandung Profesional",
+    title: "Zodra Adventure | Outing & Outbound Bandung Profesional",
     description: siteConfig.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Zodra Outing | Outing & Outbound Bandung Profesional",
+    title: "Zodra Adventure | Outing & Outbound Bandung Profesional",
     description: siteConfig.description,
   },
   robots: {

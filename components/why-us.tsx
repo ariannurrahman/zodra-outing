@@ -6,7 +6,7 @@ const benefits = [
     icon: Building2,
     title: "Legalitas Resmi & Berbadan Hukum",
     description:
-      "Kami bukan freelancer. Zodra Outing beroperasi di bawah payung hukum resmi (PT/CV) dengan dokumen lengkap untuk kebutuhan administrasi & faktur pajak korporasi.",
+      "Kami bukan freelancer. Zodra Adventure beroperasi di bawah payung hukum resmi (PT/CV) dengan dokumen lengkap untuk kebutuhan administrasi & faktur pajak korporasi.",
   },
   {
     icon: Shield,
@@ -35,7 +35,7 @@ interface WhyUsProps {
 }
 
 export function WhyUs({
-  title = "Kenapa 500+ Perusahaan Memilih Zodra Outing?",
+  title = "Kenapa 500+ Perusahaan Memilih Zodra Adventure?",
   sinceYear = 2015,
   className,
 }: WhyUsProps) {

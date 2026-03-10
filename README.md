@@ -1,6 +1,6 @@
-# Zodra Outing
+# Zodra Adventure
 
-Website untuk **Zodra Outing** — penyedia layanan outbound profesional untuk perusahaan, sekolah, dan komunitas di Indonesia. Menawarkan paket petualangan yang mendidik dan menyenangkan.
+Website untuk **Zodra Adventure** — penyedia layanan outbound profesional untuk perusahaan, sekolah, dan komunitas di Indonesia. Menawarkan paket petualangan yang mendidik dan menyenangkan.
 
 ## Tech Stack
 
@@ -106,4 +106,4 @@ npm run build
 
 ## License
 
-Private — Zodra Outing
+Private — Zodra Adventure

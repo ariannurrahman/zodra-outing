@@ -1,6 +1,6 @@
 // Site config for SEO - update with your production URL
 export const siteConfig = {
-  name: "Zodra Outing",
+  name: "Zodra Adventure",
   description:
     "Penyedia layanan outing dan outbound Bandung profesional untuk perusahaan, sekolah, dan komunitas. Paket outbound Bandung, team building, offroad Cikole.",
   url:

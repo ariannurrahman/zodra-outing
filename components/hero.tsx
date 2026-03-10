@@ -55,7 +55,7 @@ export function Hero({
           </p>
           {showCta && (
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <WhatsAppCta variant="button" message="Halo, saya tertarik dengan layanan outbound Zodra Outing. Bisa info lebih detail?">Konsultasi Gratis via WhatsApp</WhatsAppCta>
+              <WhatsAppCta variant="button" message="Halo, saya tertarik dengan layanan outbound Zodra Adventure. Bisa info lebih detail?">Konsultasi Gratis via WhatsApp</WhatsAppCta>
               <LihatPaketButton />
             </div>
           )}

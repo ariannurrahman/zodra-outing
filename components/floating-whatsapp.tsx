@@ -9,7 +9,7 @@ interface FloatingWhatsAppProps {
 }
 
 const DEFAULT_MESSAGE =
-  "Halo, saya tertarik dengan layanan outbound Zodra Outing. Bisa info lebih detail?";
+  "Halo, saya tertarik dengan layanan outbound Zodra Adventure. Bisa info lebih detail?";
 
 export function FloatingWhatsApp({ message, className }: FloatingWhatsAppProps) {
   const text = message ?? DEFAULT_MESSAGE;
