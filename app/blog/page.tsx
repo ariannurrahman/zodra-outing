@@ -3,9 +3,9 @@ import Link from "next/link";
 import { Hero } from "@/components/hero";
 
 export const metadata: Metadata = {
-  title: "Blog | Zodra Outing",
+  title: "Blog",
   description:
-    "Artikel dan tips seputar outbound, team building, dan kegiatan outdoor.",
+    "Artikel dan tips outing Bandung, outbound, team building, dan kegiatan outdoor. Inspirasi untuk acara perusahaan & sekolah.",
 };
 
 export default function BlogPage() {

@@ -9,9 +9,9 @@ import { CtaBanner } from "@/components/cta-banner";
 import { outboundPackages, teamBuildingPackages } from "@/lib/packages";
 
 export const metadata: Metadata = {
-  title: "Paket Outbound | Zodra Outing",
+  title: "Paket Outbound Bandung",
   description:
-    "Lihat berbagai paket outbound kami untuk perusahaan, sekolah, dan komunitas. Pilih paket yang sesuai dengan kebutuhan Anda.",
+    "Paket outing dan outbound Bandung terbaik: 1 Day, 2D1N, 3D2N. Team building, offroad Cikole, rafting. Lokasi di Bandung & sekitarnya.",
 };
 
 export default function PaketOutboundPage() {

@@ -24,8 +24,9 @@ export function Footer() {
               Zodra Outing
             </Link>
             <p className="mt-2 max-w-sm text-sm text-muted-foreground">
-              Penyedia layanan outbound profesional untuk perusahaan, sekolah,
-              dan komunitas. Petualangan yang mendidik dan menyenangkan.
+              Penyedia layanan outing dan outbound Bandung profesional untuk
+              perusahaan, sekolah, dan komunitas. Petualangan yang mendidik dan
+              menyenangkan.
             </p>
           </div>
           <div>

@@ -12,7 +12,7 @@ interface HeroProps {
 
 export function Hero({
   title = "Bikin Tim Makin Kompak dengan Petualangan Offroad",
-  subtitle = "Lupakan penat kantor sejenak. Rasakan sensasi menerjang hutan pinus Cikole dengan Land Rover 4x4. Pengalaman healing seru yang menyatukan tim Anda kembali.",
+  subtitle = "Lupakan penat kantor sejenak. Rasakan sensasi menerjang hutan pinus Cikole Bandung dengan Land Rover 4x4. Pengalaman outing Bandung yang menyatukan tim Anda kembali.",
   showCta = true,
   highlightKeyword,
 }: HeroProps) {
@@ -41,7 +41,7 @@ export function Hero({
         className="absolute inset-0 h-full w-full object-cover"
         aria-hidden
       >
-        <source src="/video/zodra.mp4" type="video/mp4" />
+        <source src="/video/zodra-edited.mp4" type="video/mp4" />
       </video>
       {/* Overlay for readability (40–50% for accessibility) */}
       <div className="absolute inset-0 bg-black/50" />

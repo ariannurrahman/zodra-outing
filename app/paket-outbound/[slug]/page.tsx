@@ -32,8 +32,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const pkg = packages[slug];
   if (!pkg) return { title: "Paket Tidak Ditemukan" };
   return {
-    title: `${pkg.title} | Zodra Outing`,
-    description: pkg.description,
+    title: `${pkg.title} Bandung`,
+    description: `${pkg.description} Paket outing Bandung untuk perusahaan & sekolah. Lokasi Cikole, Ciater, Pangalengan.`,
   };
 }
 

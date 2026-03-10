@@ -5,9 +5,9 @@ import { contact } from "@/lib/constants";
 import { Mail, MapPin } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Kontak | Zodra Outing",
+  title: "Kontak",
   description:
-    "Hubungi Zodra Outing untuk informasi paket outbound dan reservasi. Kami siap melayani Anda.",
+    "Hubungi Zodra Outing untuk reservasi paket outing Bandung dan outbound. WhatsApp: 0895 1319 2579. Respons cepat.",
 };
 
 export default function KontakPage() {

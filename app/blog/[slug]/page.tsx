@@ -29,8 +29,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = posts[slug];
   if (!post) return { title: "Post Not Found" };
   return {
-    title: `${post.title} | Zodra Outing Blog`,
-    description: post.content.slice(0, 160),
+    title: post.title,
+    description: `${post.content.slice(0, 150)}... Tips outing Bandung & outbound.`,
   };
 }
 

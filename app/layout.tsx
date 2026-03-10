@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { FloatingWhatsApp } from "@/components/floating-whatsapp";
+import { JsonLd } from "@/components/json-ld";
+import { siteConfig } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -16,9 +18,38 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Zodra Outing | Paket Outbound Profesional",
-  description:
-    "Penyedia layanan outbound profesional untuk perusahaan, sekolah, dan komunitas. Petualangan yang mendidik dan menyenangkan.",
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: "Zodra Outing | Outing & Outbound Bandung Profesional",
+    template: "%s | Zodra Outing",
+  },
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  openGraph: {
+    type: "website",
+    locale: siteConfig.locale,
+    siteName: siteConfig.name,
+    title: "Zodra Outing | Outing & Outbound Bandung Profesional",
+    description: siteConfig.description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Zodra Outing | Outing & Outbound Bandung Profesional",
+    description: siteConfig.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  icons: {
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
@@ -31,6 +62,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <JsonLd />
         <div className="relative flex min-h-screen flex-col">
           <Navbar />
           <main className="flex-1">{children}</main>
