@@ -3,12 +3,12 @@ import { Waves, Target, Car, Swords, Tent, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const categories = [
-  { icon: Waves, label: "Rafting", href: "/paket-outbound" },
-  { icon: Target, label: "Paintball", href: "/paket-outbound" },
-  { icon: Car, label: "Offroad Land Rover", href: "/paket-outbound" },
-  { icon: Swords, label: "Archery War", href: "/paket-outbound" },
-  { icon: Tent, label: "Camping/Glamping", href: "/paket-outbound" },
-  { icon: Users, label: "Team Building", href: "/paket-outbound" },
+  { icon: Waves, label: "Rafting", href: "/paket-outbound#packages" },
+  { icon: Target, label: "Paintball", href: "/paket-outbound#packages" },
+  { icon: Car, label: "Offroad Land Rover", href: "/paket-outbound#packages" },
+  { icon: Swords, label: "Archery War", href: "/paket-outbound#packages" },
+  { icon: Tent, label: "Camping/Glamping", href: "/paket-outbound#packages" },
+  { icon: Users, label: "Team Building", href: "/paket-outbound#packages" },
 ];
 
 interface ServiceCategoriesProps {
@@ -23,24 +23,26 @@ export function ServiceCategories({
   return (
     <section
       id="layanan"
-      className={cn("mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8", className)}
+      className={cn(
+        "relative mx-auto max-w-6xl overflow-hidden rounded-3xl px-4 py-16 sm:px-6 lg:px-8",
+        "bg-linear-to-b from-emerald-50/60 to-transparent dark:from-emerald-950/20 dark:to-transparent",
+        className
+      )}
     >
-      <h2 className="mb-10 text-center text-2xl font-bold text-foreground sm:text-3xl">
+      <h2 className="mb-12 text-center text-2xl font-bold text-foreground sm:text-3xl">
         {title}
       </h2>
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-6">
+      <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
         {categories.map(({ icon: Icon, label, href }) => (
           <Link
             key={label}
             href={href}
-            className="group flex flex-col items-center rounded-xl border border-border/50 bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/30 hover:shadow-md"
+            className="group flex items-center gap-3 rounded-full border border-emerald-200/60 bg-white px-5 py-3 shadow-sm ring-1 ring-black/5 transition-all hover:-translate-y-0.5 hover:border-emerald-400/80 hover:bg-emerald-50/80 hover:shadow-md hover:shadow-emerald-500/10 dark:border-emerald-800/50 dark:bg-emerald-950/30 dark:ring-white/5 dark:hover:border-emerald-600/60 dark:hover:bg-emerald-900/40"
           >
-            <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-br from-emerald-500/20 to-teal-500/20 transition-colors group-hover:from-emerald-500/30 group-hover:to-teal-500/30">
-              <Icon className="h-6 w-6 text-emerald-600 dark:text-emerald-400" />
-            </div>
-            <span className="text-center text-sm font-semibold text-foreground">
-              {label}
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 transition-colors group-hover:bg-emerald-200 group-hover:text-emerald-800 dark:bg-emerald-800/50 dark:text-emerald-300 dark:group-hover:bg-emerald-700/60 dark:group-hover:text-emerald-200">
+              <Icon className="h-4 w-4" />
             </span>
+            <span className="text-sm font-semibold text-foreground">{label}</span>
           </Link>
         ))}
       </div>
