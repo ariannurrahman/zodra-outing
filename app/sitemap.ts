@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
+import { getAllPackagePaths } from "@/lib/packages";
 
-const packageSlugs = ["1-day", "2d1n", "3d2n"];
+const packageCategorySlugs = ["1-day", "2d1n", "3d2n"];
 const blogSlugs = ["manfaat-outbound-untuk-tim", "tips-memilih-lokasi-outbound"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -29,12 +30,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const packagePages: MetadataRoute.Sitemap = packageSlugs.map((slug) => ({
-    url: `${baseUrl}/paket-outbound/${slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.8,
-  }));
+  const packageCategoryPages: MetadataRoute.Sitemap = packageCategorySlugs.map(
+    (slug) => ({
+      url: `${baseUrl}/paket-outbound/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })
+  );
+
+  const packageDetailPages: MetadataRoute.Sitemap = getAllPackagePaths().map(
+    ({ category, slug }) => ({
+      url: `${baseUrl}/paket-outbound/${category}/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })
+  );
+
+  const packagePages: MetadataRoute.Sitemap = [
+    ...packageCategoryPages,
+    ...packageDetailPages,
+  ];
 
   const blogPages: MetadataRoute.Sitemap = blogSlugs.map((slug) => ({
     url: `${baseUrl}/blog/${slug}`,
