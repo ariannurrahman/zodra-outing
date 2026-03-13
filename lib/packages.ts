@@ -154,6 +154,8 @@ const paket2D1N: SubPackage[] = [
     dayPackage: "2D1N",
     buttonText: "Detail Paket",
     href: "/paket-outbound/2d1n/paket-outbound-bandung-2d1n",
+    description:
+      "Penginapan 1 malam, makan 3x, games, highrope adventure (Two Line Bridges, Rappelling, Flying Fox), dan malam keakraban dengan hiburan musik.",
   },
 ];
 
@@ -168,6 +170,8 @@ const paket3D2N: SubPackage[] = [
     dayPackage: "3D2N",
     buttonText: "Detail Paket",
     href: "/paket-outbound/3d2n/fun-offroad-3d2n",
+    description:
+      "Paket outbound 3 hari 2 malam dengan fokus fun offroad adventure. Games lengkap, highrope, paintball, dan penginapan 2 malam.",
   },
   {
     slug: "paket-outbound-bandung-3d2n",
@@ -178,6 +182,8 @@ const paket3D2N: SubPackage[] = [
     dayPackage: "3D2N",
     buttonText: "Detail Paket",
     href: "/paket-outbound/3d2n/paket-outbound-bandung-3d2n",
+    description:
+      "Paket lengkap 3 hari 2 malam: treasure hunt, construction building, ice breaking, highrope, paintball war game. Makan 6x, snack 4x, dokumentasi drone.",
   },
 ];
 
@@ -205,36 +211,46 @@ export const paketOutboundByType: PackageCategory[] = [
   },
 ];
 
-/** @deprecated Use paketOutboundByType for the paket-outbound page */
-export const outboundPackages = [
-  {
+/** Home page outbound category cards derived from paketOutboundByType */
+const homeCategoryDisplay: Record<
+  CategorySlug,
+  { title: string; price: string; image: string; imageAlt: string }
+> = {
+  "1-day": {
+    title: "Paket Outbound 1 Day",
+    price: "Mulai Rp. 150.000",
     image: "/activity/party-1.webp",
     imageAlt: "Rafting dan zip line outbound",
-    title: "Paket Outbound 1 Day",
-    dayPackage: "1 day Package",
-    price: "Start from Rp. 150.000",
-    buttonText: "LIHAT PAKET OUTBOUND 1 DAY",
-    href: "/paket-outbound/1-day",
   },
-  {
+  "2d1n": {
+    title: "Paket Outbound 2D1N",
+    price: "Mulai Rp. 650.000",
     image: "/activity/offroad-2.webp",
     imageAlt: "Rafting dan offroad outbound",
-    title: "Paket Outbound 2D1N",
-    dayPackage: "2 day Package",
-    price: "Start from Rp. 650.000",
-    buttonText: "LIHAT PAKET OUTBOUND 2D1N",
-    href: "/paket-outbound/2d1n",
   },
-  {
+  "3d2n": {
+    title: "Paket Outbound 3D2N",
+    price: "Mulai Rp. 1.100.000",
     image: "/activity/offroad-3.webp",
     imageAlt: "Offroad adventure outbound",
-    title: "Paket Outbound 3D2N",
-    dayPackage: "3 day Package",
-    price: "Start from Rp. 1.100.000",
-    buttonText: "LIHAT PAKET OUTBOUND 3D2N",
-    href: "/paket-outbound/3d2n",
   },
-];
+};
+
+export function getOutboundPackagesForHome() {
+  return paketOutboundByType.map((cat) => {
+    const display = homeCategoryDisplay[cat.categorySlug];
+    const firstPkg = cat.packages[0];
+    return {
+      image: display.image,
+      imageAlt: display.imageAlt,
+      title: display.title,
+      dayPackage: firstPkg?.dayPackage ?? "",
+      price: display.price,
+      buttonText: `LIHAT PAKET OUTBOUND ${cat.categorySlug.toUpperCase().replace("-", " ")}`,
+      href: `/paket-outbound/${cat.categorySlug}`,
+    };
+  });
+}
 
 export const teamBuildingPackages = [
   {

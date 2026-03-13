@@ -8,7 +8,10 @@ import { Gallery } from "@/components/gallery";
 import { Faq } from "@/components/faq";
 import { CtaBanner } from "@/components/cta-banner";
 import { clients } from "@/lib/clients";
-import { outboundPackages, teamBuildingPackages } from "@/lib/packages";
+import {
+  getOutboundPackagesForHome,
+  teamBuildingPackages,
+} from "@/lib/packages";
 
 export default function Home() {
   return (
@@ -34,7 +37,7 @@ export default function Home() {
             Paket Outbound Bandung
           </h3>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {outboundPackages.map((pkg) => (
+            {getOutboundPackagesForHome().map((pkg) => (
               <PackageCard
                 key={pkg.title}
                 variant="outbound"
