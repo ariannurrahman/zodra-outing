@@ -1,9 +1,9 @@
-import { Shield, Award, Users, Building2 } from "lucide-react";
+import { Shield, Mountain, Compass, TreePine } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const benefits = [
   {
-    icon: Building2,
+    icon: Mountain,
     title: "Legalitas Resmi & Berbadan Hukum",
     description:
       "Kami bukan freelancer. Zodra Adventure beroperasi di bawah payung hukum resmi (PT/CV) dengan dokumen lengkap untuk kebutuhan administrasi & faktur pajak korporasi.",
@@ -15,13 +15,13 @@ const benefits = [
       "Protokol keselamatan ketat. Seluruh peserta dilindungi asuransi, peralatan teruji standar industri, dan didampingi tim medis lapangan.",
   },
   {
-    icon: Award,
+    icon: Compass,
     title: "Fasilitator Tersertifikasi BNSP",
     description:
       "Event Anda dipandu oleh trainer profesional yang tidak hanya seru, tapi juga terlatih dalam manajemen risiko dan dinamika kelompok (Team Building).",
   },
   {
-    icon: Users,
+    icon: TreePine,
     title: "Terpercaya Sejak 2015",
     description:
       "Menjadi mitra andalan BUMN, Perbankan, dan Startup Unicorn. Kami menggaransi event gathering yang rapi, on-time, dan berkesan.",
@@ -53,25 +53,29 @@ export function WhyUs({
       <h2 className="mb-12 text-center text-2xl font-bold text-foreground sm:text-3xl">
         {title}
       </h2>
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4 md:items-start">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:items-start">
         {benefitsWithYear.map((benefit) => {
           const Icon = benefit.icon;
           return (
             <div
               key={benefit.title}
-              className="group relative flex flex-col overflow-hidden rounded-2xl border border-border/40 bg-linear-to-b from-card to-muted/30 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/30 hover:shadow-lg hover:shadow-emerald-500/5"
+              className="group relative h-full flex flex-col overflow-hidden rounded-2xl border border-emerald-200/50 bg-linear-to-b from-emerald-50/50 to-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-emerald-400/60 hover:shadow-lg hover:shadow-emerald-500/10 dark:border-emerald-900/30 dark:from-emerald-950/20 dark:to-card dark:hover:border-emerald-700/50"
             >
-              <div className="mb-4 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-linear-to-br from-emerald-500/20 to-teal-500/20 transition-colors group-hover:from-emerald-500/30 group-hover:to-teal-500/30">
-                <Icon className="h-6 w-6 text-emerald-600 dark:text-emerald-400" />
+              {/* Subtle leaf accent */}
+              <div className="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-emerald-200/20 dark:bg-emerald-800/10" />
+              <div className="relative">
+                <div className="mb-4 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-emerald-600/10 text-emerald-700 transition-colors group-hover:bg-emerald-600/20 dark:bg-emerald-500/10 dark:text-emerald-400 dark:group-hover:bg-emerald-500/20">
+                  <Icon className="h-6 w-6" />
+                </div>
+                <div className="min-h-8">
+                  <h3 className="text-base font-bold leading-tight text-foreground">
+                    {benefit.title}
+                  </h3>
+                </div>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                  {benefit.description}
+                </p>
               </div>
-              <div className="min-h-11">
-                <h3 className="text-base font-bold leading-tight text-foreground">
-                  {benefit.title}
-                </h3>
-              </div>
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                {benefit.description}
-              </p>
             </div>
           );
         })}
