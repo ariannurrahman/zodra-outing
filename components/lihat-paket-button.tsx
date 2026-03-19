@@ -1,5 +1,7 @@
 "use client";
 
+import { cn } from "@/lib/utils";
+import { ArrowDown } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -20,9 +22,9 @@ export function LihatPaketButton() {
       <button
         type="button"
         onClick={scrollToPackages}
-        className={BUTTON_CLASS}
+        className={cn(BUTTON_CLASS, "size-10 p-0 flex items-center justify-center mt-10 rounded-full")}
       >
-        Lihat Paket
+        <ArrowDown className="size-4 animate-bounce" />
       </button>
     );
   }

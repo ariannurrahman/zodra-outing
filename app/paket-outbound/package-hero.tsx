@@ -25,7 +25,7 @@ export function PackageHero() {
             Pilih paket outbound yang sesuai dengan kebutuhan tim Anda. Dari paket
             half day hingga full camping, kami siap melayani.
           </p>
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="mt-10 flex flex-col items-center justify-center gap-4">
             <WhatsAppCta
               variant="button"
               message="Halo, saya tertarik dengan layanan outbound Zodra Adventure. Bisa info lebih detail?"

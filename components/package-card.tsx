@@ -3,8 +3,6 @@ import Link from "next/link";
 import { ChevronRight, Tag } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-type PackageCardVariant = "outbound" | "team-building";
-
 interface PackageCardBaseProps {
   image: string;
   imageAlt: string;
@@ -45,12 +43,12 @@ export function PackageCard(props: PackageCardProps) {
   return (
     <article
       className={cn(
-        "group overflow-hidden rounded-2xl border border-border/50 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5",
+        "group overflow-hidden rounded-2xl h-full border border-border/50 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5",
         className
       )}
     >
       {/* Image section */}
-      <div className="relative aspect-4/3 w-full overflow-hidden">
+      <div className="relative aspect-4/3 h-60 w-full overflow-hidden">
         <Image
           src={image}
           alt={imageAlt}
@@ -75,13 +73,6 @@ export function PackageCard(props: PackageCardProps) {
           </span>
         )}
 
-        {/* Fasilitas banner (team-building only) */}
-        {!isOutboundProps(props) && props.showFasilitas && (
-          <span className="absolute right-4 top-4 rounded-full bg-amber-400/95 px-3 py-1.5 text-xs font-semibold text-amber-950 backdrop-blur-sm">
-            Fasilitas
-          </span>
-        )}
-
         {/* Watermark */}
         {props.watermark && (
           <span className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-white/90 px-3 py-1 text-[10px] font-medium text-muted-foreground backdrop-blur-sm">
@@ -91,18 +82,20 @@ export function PackageCard(props: PackageCardProps) {
       </div>
 
       {/* Content section */}
-      <div className="flex flex-col gap-0 p-5">
+      <div className="flex flex-col gap-0 p-5 flex-1 justify-between">
         {/* Title */}
-        <h3 className="text-lg font-semibold leading-snug text-foreground transition-colors group-hover:text-primary">
-          {title}
-        </h3>
+        <div className="flex flex-col">
+          <h3 className="text-base lg:text-lg font-semibold leading-snug text-foreground transition-colors group-hover:text-primary">
+            {title}
+          </h3>
 
-        {/* Price */}
-        <div className="mt-3 flex items-center gap-2">
-          {!isOutboundProps(props) && (
-            <Tag className="h-4 w-4 shrink-0 text-muted-foreground" />
-          )}
-          <span className="font-bold text-primary">{price}</span>
+          {/* Price */}
+          <div className="mt-3 flex items-center gap-2">
+            {!isOutboundProps(props) && (
+              <Tag className="h-4 w-4 shrink-0 text-muted-foreground" />
+            )}
+            <span className="font-bold text-primary">{price}</span>
+          </div>
         </div>
 
         {/* CTA button (outbound only) */}
