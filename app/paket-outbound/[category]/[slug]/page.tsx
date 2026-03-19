@@ -1,16 +1,69 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import type { ReactNode } from "react";
 import { WhatsAppCta } from "@/components/whatsapp-cta";
 import { PackageCard } from "@/components/package-card";
-import { OneDayPackageContent } from "@/components/one-day-package-content";
 import { TwoDayPackageContent } from "@/components/two-day-package-content";
+import { ThreeDayPackageContent } from "@/components/three-day-package-content";
+import { FunOffroad3D2NContent } from "@/components/fun-offroad-3d2n-content";
+import { PaketOutboundBandung3D2NContent } from "@/components/paket-outbound-bandung-3d2n-content";
+import { PaintballContent, HighropeContent, HalfdayContent, FunOffroadContent, AmazingRaceOffroadPaintballContent, RaftingPangalenganCiaterContent, PaintballRaftingCiaterContent } from "@/components/low-team-building";
 import {
   getPackageBySlug,
   getAllPackagePaths,
   paketOutboundByType,
   type CategorySlug,
 } from "@/lib/packages";
+
+function getPackageContent(category: string, slug: string, description?: string): ReactNode {
+  const key = `${category}:${slug}`;
+  switch (key) {
+    case "1-day:low-team-building-paintball":
+      return <PaintballContent />;
+    case "1-day:low-team-building-highrope":
+      return <HighropeContent />;
+    case "1-day:low-team-building-halfday":
+      return <HalfdayContent />;
+    case "1-day:low-team-building-fun-offroad":
+      return <FunOffroadContent />;
+    case "1-day:amazing-race-offroad-paintball":
+      return <AmazingRaceOffroadPaintballContent />;
+    case "1-day:rafting-pangalengan-ciater":
+      return <RaftingPangalenganCiaterContent />;
+    case "1-day:paintball-rafting-ciater":
+      return <PaintballRaftingCiaterContent />;
+    case "3d2n:fun-offroad-3d2n":
+      return <FunOffroad3D2NContent />;
+    case "3d2n:paket-outbound-bandung-3d2n":
+      return <PaketOutboundBandung3D2NContent />;
+    default:
+      break;
+  }
+  switch (category) {
+    case "2d1n":
+      return <TwoDayPackageContent />;
+    case "3d2n":
+      return <ThreeDayPackageContent />;
+    case "1-day":
+      return (
+        <div className="rounded-xl border border-border/60 bg-card/50 p-6">
+          <p className="text-muted-foreground leading-relaxed">
+            {description ||
+              "Detail lengkap paket ini akan segera ditambahkan. Anda dapat menghubungi kami untuk informasi lebih lanjut mengenai fasilitas, jadwal, dan lokasi kegiatan."}
+          </p>
+        </div>
+      );
+    default:
+      return (
+        <p className="text-muted-foreground">
+          Detail lengkap paket ini akan segera ditambahkan. Anda dapat
+          menghubungi kami untuk informasi lebih lanjut mengenai fasilitas,
+          jadwal, dan lokasi kegiatan.
+        </p>
+      );
+  }
+}
 
 type Props = {
   params: Promise<{ category: string; slug: string }>;
@@ -94,7 +147,6 @@ export default async function PackageDetailPage({ params }: Props) {
       >
         ← Kembali ke {cat.title}
       </Link>
-
       <article className="mt-8">
         <div className="overflow-hidden rounded-2xl">
           <div className="relative aspect-21/9 w-full">
@@ -121,24 +173,7 @@ export default async function PackageDetailPage({ params }: Props) {
         <div className="mx-auto mt-10 max-w-3xl">
           <p className="text-2xl font-semibold text-primary">{pkg.price}</p>
           <div className="mt-8">
-            {category === "1-day" && slug === "low-team-building-halfday" ? (
-              <OneDayPackageContent />
-            ) : category === "2d1n" ? (
-              <TwoDayPackageContent />
-            ) : category === "1-day" ? (
-              <div className="rounded-xl border border-border/60 bg-card/50 p-6">
-                <p className="text-muted-foreground leading-relaxed">
-                  {pkg.description ||
-                    "Detail lengkap paket ini akan segera ditambahkan. Anda dapat menghubungi kami untuk informasi lebih lanjut mengenai fasilitas, jadwal, dan lokasi kegiatan."}
-                </p>
-              </div>
-            ) : (
-              <p className="text-muted-foreground">
-                Detail lengkap paket ini akan segera ditambahkan. Anda dapat
-                menghubungi kami untuk informasi lebih lanjut mengenai
-                fasilitas, jadwal, dan lokasi kegiatan.
-              </p>
-            )}
+            {getPackageContent(category, slug, pkg.description)}
           </div>
           <div className="mt-10">
             <WhatsAppCta
