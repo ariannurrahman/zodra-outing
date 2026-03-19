@@ -97,7 +97,7 @@ const paket1Hari: SubPackage[] = [
     slug: "amazing-race-offroad-paintball",
     image: "/activity/paintball-2.webp",
     imageAlt: "Amazing Race Offroad Paintball",
-    title: "Low Team Building Amazing Race-Offroad-Paintball",
+    title: "Amazing Race-Offroad-Paintball",
     price: "Rp. 525.000 / Pax",
     dayPackage: "1 Hari",
     buttonText: "Detail Paket",

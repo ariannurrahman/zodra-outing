@@ -69,7 +69,6 @@ export default function Home() {
                 price={pkg.price}
                 overlay={pkg.overlay}
                 showFasilitas={pkg.showFasilitas}
-                watermark={pkg.watermark}
               />
             ))}
           </div>
