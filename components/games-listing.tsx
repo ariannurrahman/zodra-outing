@@ -1,7 +1,8 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
@@ -13,8 +14,39 @@ import {
 
 const categories = getGameCategories();
 
+function isGameCategory(value: string): value is GameCategory {
+  return categories.includes(value as GameCategory);
+}
+
 export function GamesListing() {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const [active, setActive] = useState<GameCategory | "all">("all");
+
+  useEffect(() => {
+    const k = searchParams.get("kategori");
+    if (k && isGameCategory(k)) {
+      setActive(k);
+    } else {
+      setActive("all");
+    }
+  }, [searchParams]);
+
+  const applyCategory = useCallback(
+    (cat: GameCategory | "all") => {
+      setActive(cat);
+      const params = new URLSearchParams(searchParams.toString());
+      if (cat === "all") {
+        params.delete("kategori");
+      } else {
+        params.set("kategori", cat);
+      }
+      const q = params.toString();
+      router.replace(q ? `${pathname}?${q}` : pathname, { scroll: false });
+    },
+    [router, pathname, searchParams]
+  );
 
   const filtered = useMemo(() => {
     if (active === "all") return outboundGames;
@@ -26,7 +58,7 @@ export function GamesListing() {
       <div className="mb-10 flex flex-wrap gap-2">
         <button
           type="button"
-          onClick={() => setActive("all")}
+          onClick={() => applyCategory("all")}
           className={cn(
             "rounded-full px-4 py-2 text-sm font-semibold transition-colors",
             active === "all"
@@ -40,7 +72,7 @@ export function GamesListing() {
           <button
             key={cat}
             type="button"
-            onClick={() => setActive(cat)}
+            onClick={() => applyCategory(cat)}
             className={cn(
               "rounded-full px-4 py-2 text-sm font-semibold transition-colors",
               active === cat

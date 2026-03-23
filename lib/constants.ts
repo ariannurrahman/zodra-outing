@@ -12,4 +12,6 @@ export const contact = {
   email: EMAIL,
   company: "PT. Lingkar Surya Buana",
   address: "Jl. Kiaracondong 175 Ruko Dynasti C5 Bandung",
+  facebookUrl: "https://www.facebook.com/bandungoutboundadv",
+  instagramUrl: "https://www.instagram.com/bandung.outbound/",
 };
