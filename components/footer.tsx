@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { contact } from "@/lib/constants";
 import { MapPin, Phone, MessageCircle, Mail } from "lucide-react";
+import { Logo } from "./logo";
 
 const footerLinks = {
   paket: [
@@ -30,9 +31,9 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Link
               href="/"
-              className="text-xl font-bold tracking-tight text-foreground transition-colors hover:text-emerald-700 dark:hover:text-emerald-400"
+              className="flex items-start justify-start gap-2 text-xl font-bold tracking-tight text-foreground transition-colors hover:text-emerald-700 dark:hover:text-emerald-400"
             >
-              Zodra Adventure
+              <Logo />
             </Link>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted-foreground">
               Penyedia layanan outing dan outbound Bandung profesional untuk
