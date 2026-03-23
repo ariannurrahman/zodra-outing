@@ -7,7 +7,7 @@ interface PackageCardBaseProps {
   image: string;
   imageAlt: string;
   title: string;
-  price: string;
+  price?: string;
   className?: string;
 }
 
@@ -90,12 +90,12 @@ export function PackageCard(props: PackageCardProps) {
           </h3>
 
           {/* Price */}
-          <div className="mt-3 flex items-center gap-2">
+          {price && <div className="mt-3 flex items-center gap-2">
             {!isOutboundProps(props) && (
               <Tag className="h-4 w-4 shrink-0 text-muted-foreground" />
             )}
             <span className="font-bold text-primary">{price}</span>
-          </div>
+          </div>}
         </div>
 
         {/* CTA button (outbound only) */}

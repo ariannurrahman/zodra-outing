@@ -5,9 +5,11 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Logo } from "./logo";
 
 const navLinks = [
   { href: "/", label: "HOME" },
+  { href: "/tentang-kami", label: "TENTANG KAMI" },
   { href: "/paket-outbound", label: "PAKET OUTBOUND" },
   { href: "/games", label: "PERMAINAN" },
   { href: "/blog", label: "BLOG" },
@@ -26,11 +28,11 @@ export function Navbar() {
             href="/"
             className="text-xl font-bold tracking-tight text-foreground transition-colors hover:text-emerald-700 dark:hover:text-emerald-400"
           >
-            Zodra Adventure
+            <Logo />
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex md:items-center md:gap-2">
+          <div className="hidden lg:flex lg:items-center lg:gap-2">
             {navLinks.map((link) => {
               const isActive =
                 pathname === link.href ||
@@ -55,7 +57,7 @@ export function Navbar() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-md p-2 text-foreground hover:bg-accent hover:text-accent-foreground md:hidden"
+            className="inline-flex items-center justify-center rounded-md p-2 text-foreground hover:bg-accent hover:text-accent-foreground lg:hidden"
             onClick={() => setMobileMenuOpen(true)}
             aria-label="Open menu"
           >
@@ -67,7 +69,7 @@ export function Navbar() {
       {/* Mobile sidebar overlay */}
       <div
         className={cn(
-          "fixed inset-0 z-50 bg-black/50 transition-opacity md:hidden",
+          "fixed inset-0 z-50 bg-black/50 transition-opacity lg:hidden",
           mobileMenuOpen ? "opacity-100" : "pointer-events-none opacity-0"
         )}
         onClick={() => setMobileMenuOpen(false)}
@@ -77,7 +79,7 @@ export function Navbar() {
       {/* Mobile sidebar */}
       <aside
         className={cn(
-          "fixed right-0 top-0 z-50 h-full w-72 max-w-[85vw] border-l border-border bg-background shadow-xl transition-transform duration-300 ease-in-out md:hidden",
+          "fixed right-0 top-0 z-50 h-full w-72 max-w-[85vw] border-l border-border bg-background shadow-xl transition-transform duration-300 ease-in-out lg:hidden",
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >

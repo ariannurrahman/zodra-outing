@@ -11,7 +11,9 @@ const footerLinks = {
   ],
   navigasi: [
     { href: "/", label: "Home" },
+    { href: "/tentang-kami", label: "Tentang Kami" },
     { href: "/paket-outbound", label: "Paket Outbound" },
+    { href: "/games", label: "Permainan" },
     { href: "/blog", label: "Blog" },
     { href: "/kontak", label: "Kontak" },
   ],

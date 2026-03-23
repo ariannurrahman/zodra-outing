@@ -66,7 +66,7 @@ export default function Home() {
                 image={pkg.image}
                 imageAlt={pkg.imageAlt}
                 title={pkg.title}
-                price={pkg.price}
+                // price={pkg.price}
                 overlay={pkg.overlay}
                 showFasilitas={pkg.showFasilitas}
               />
