@@ -171,11 +171,18 @@ export default async function PackageDetailPage({ params }: Props) {
         </div>
 
         <div className="mx-auto mt-10 max-w-3xl">
-          <p className="text-2xl font-semibold text-primary">{pkg.price}</p>
+          <div className="flex items-center justify-between flex-row">
+
+            <p className="text-2xl font-semibold text-primary">{pkg.price}</p>
+            <WhatsAppCta
+              variant="link"
+              message={`Halo, saya tertarik dengan ${pkg.title}. Bisa info lebih detail?`}
+            />
+          </div>
           <div className="mt-8">
             {getPackageContent(category, slug, pkg.description)}
           </div>
-          <div className="mt-10">
+          <div className="mt-10 flex justify-center">
             <WhatsAppCta
               variant="button"
               message={`Halo, saya tertarik dengan ${pkg.title}. Bisa info lebih detail?`}

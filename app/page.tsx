@@ -70,7 +70,7 @@ export default function Home() {
                 image={pkg.image}
                 imageAlt={pkg.imageAlt}
                 title={pkg.title}
-                // price={pkg.price}
+                href={pkg.href}
                 overlay={pkg.overlay}
                 showFasilitas={pkg.showFasilitas}
               />

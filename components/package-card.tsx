@@ -21,6 +21,8 @@ interface PackageCardOutboundProps extends PackageCardBaseProps {
 
 interface PackageCardTeamBuildingProps extends PackageCardBaseProps {
   variant: "team-building";
+  href: string;
+  buttonText?: string;
   overlay?: string;
   showFasilitas?: boolean;
   fasilitasImages?: string[];
@@ -98,16 +100,15 @@ export function PackageCard(props: PackageCardProps) {
           </div>}
         </div>
 
-        {/* CTA button (outbound only) */}
-        {isOutboundProps(props) && (
-          <Link
-            href={props.href}
-            className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90"
-          >
-            {props.buttonText}
-            <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-          </Link>
-        )}
+        <Link
+          href={props.href}
+          className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90"
+        >
+          {isOutboundProps(props)
+            ? props.buttonText
+            : (props.buttonText ?? "Lihat detail")}
+          <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+        </Link>
       </div>
     </article>
   );

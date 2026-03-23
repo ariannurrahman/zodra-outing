@@ -252,12 +252,13 @@ export function getOutboundPackagesForHome() {
   });
 }
 
+/** Homepage low team building cards — link to 1-day detail pages, no price on card */
 export const teamBuildingPackages = [
   {
     image: "/activity/paintball-2.webp",
     imageAlt: "Amazing Race Offroad Paintball",
     title: "Amazing Race - Offroad - Paintball",
-    price: "Rp. 525.000",
+    href: "/paket-outbound/1-day/amazing-race-offroad-paintball",
     overlay: undefined as string | undefined,
     showFasilitas: false,
   },
@@ -265,7 +266,7 @@ export const teamBuildingPackages = [
     image: "/activity/offroad-1.webp",
     imageAlt: "Fun Offroad Cikole",
     title: "Fun Offroad Cikole",
-    price: "Rp. 435.000",
+    href: "/paket-outbound/1-day/low-team-building-fun-offroad",
     overlay: "OFFROAD ADVENTURE",
     showFasilitas: true,
   },
@@ -273,7 +274,7 @@ export const teamBuildingPackages = [
     image: "/activity/games-2.webp",
     imageAlt: "Rafting Ciater & Pangalengan",
     title: "Rafting Ciater & Pangalengan",
-    price: "Rp. 300.000",
+    href: "/paket-outbound/1-day/rafting-pangalengan-ciater",
     overlay: "+TEAMBUILDING",
     showFasilitas: true,
   },
@@ -281,7 +282,7 @@ export const teamBuildingPackages = [
     image: "/activity/paintball-1.webp",
     imageAlt: "Paintball",
     title: "Paintball",
-    price: "Rp. 330.000",
+    href: "/paket-outbound/1-day/low-team-building-paintball",
     overlay: "+TEAMBUILDING",
     showFasilitas: true,
   },
@@ -289,7 +290,7 @@ export const teamBuildingPackages = [
     image: "/activity/rope-1.webp",
     imageAlt: "Highrope",
     title: "Highrope",
-    price: "Rp. 280.000",
+    href: "/paket-outbound/1-day/low-team-building-highrope",
     overlay: "+TEAMBUILDING",
     showFasilitas: true,
   },
@@ -297,8 +298,8 @@ export const teamBuildingPackages = [
     image: "/activity/games-1.webp",
     imageAlt: "Halfday team building",
     title: "Halfday",
-    price: "Rp. 150.000",
+    href: "/paket-outbound/1-day/low-team-building-halfday",
     overlay: undefined as string | undefined,
     showFasilitas: false,
   },
-];
+] as const;
