@@ -1,7 +1,7 @@
 // Contact info - single source of truth
-const PHONE_DISPLAY = "+62 895 1319 2579";
-const WHATSAPP_DISPLAY = "+62 857 2032 4849";
-const WHATSAPP_NUMBER = "6285720324849";
+const PHONE_DISPLAY = "+62 812-2376-107";
+const WHATSAPP_DISPLAY = "+62 812-2376-107";
+const WHATSAPP_NUMBER = "628122376107";
 const EMAIL = "adventurezodra@gmail.com";
 
 export const contact = {
