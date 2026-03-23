@@ -62,7 +62,7 @@ export default function Home() {
           <h3 className="mb-6 text-xl font-semibold text-foreground">
             Paket Low Team Building
           </h3>
-          <div className="grid gap-6 grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {teamBuildingPackages.map((pkg) => (
               <PackageCard
                 key={pkg.title}
