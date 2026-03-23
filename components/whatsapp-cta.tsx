@@ -81,20 +81,36 @@ export function WhatsAppCta({
       <a
         {...baseProps}
         className={cn(
-          "flex flex-col items-center rounded-xl border border-border bg-card p-6 text-center shadow-sm transition-colors hover:border-primary hover:bg-accent/50",
+          "group relative flex h-full min-h-[220px] flex-col overflow-hidden rounded-2xl border border-emerald-200/80 bg-white p-6 text-left shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-300 hover:shadow-lg hover:shadow-emerald-950/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 dark:border-emerald-800/55 dark:bg-emerald-950/35 dark:hover:border-emerald-600/50 dark:focus-visible:ring-emerald-400",
           className
         )}
       >
-        <Image
-          src="/icon/whatsapp.png"
-          alt=""
-          width={48}
-          height={48}
-          className="shrink-0"
+        <div
+          className="absolute inset-x-0 top-0 h-1.5 bg-linear-to-r from-emerald-600 via-[#25D366] to-green-400"
+          aria-hidden
         />
-        <h3 className="mt-4 font-semibold text-foreground">WhatsApp</h3>
-        <p className="mt-2 text-sm text-muted-foreground">{contact.phone}</p>
-        <p className="mt-1 text-xs text-primary">{label}</p>
+        <div className="flex gap-4">
+          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#25D366]/11 ring-1 ring-[#25D366]/20 transition-transform duration-300 group-hover:scale-[1.03] dark:bg-[#25D366]/15 dark:ring-[#25D366]/25">
+            <Image
+              src="/icon/whatsapp.png"
+              alt=""
+              width={36}
+              height={36}
+              className="shrink-0"
+            />
+          </div>
+          <div className="min-w-0 flex-1 pt-0.5">
+            <h3 className="text-lg font-semibold tracking-tight text-emerald-950 dark:text-emerald-50">
+              WhatsApp
+            </h3>
+            <p className="mt-1 text-sm tabular-nums leading-relaxed text-emerald-800/75 dark:text-emerald-200/80">
+              {contact.phone}
+            </p>
+          </div>
+        </div>
+        <p className="mt-auto border-t border-emerald-100 pt-4 text-sm font-medium text-[#128C7E] dark:border-emerald-800/50 dark:text-[#4ade80]">
+          {label}
+        </p>
       </a>
     );
   }
