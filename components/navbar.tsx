@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 const navLinks = [
   { href: "/", label: "HOME" },
   { href: "/paket-outbound", label: "PAKET OUTBOUND" },
+  { href: "/games", label: "PERMAINAN" },
   { href: "/blog", label: "BLOG" },
   { href: "/kontak", label: "KONTAK" },
 ];

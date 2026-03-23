@@ -24,9 +24,9 @@ export function PackageDetailCard({ pkg }: PackageDetailCardProps) {
         </span>
         <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
           <h3 className="text-lg font-semibold drop-shadow-md">{pkg.title}</h3>
-          <span className="mt-1 inline-block font-bold text-amber-300 drop-shadow-md">
+          {/* <span className="mt-1 inline-block font-bold text-amber-300 drop-shadow-md">
             {pkg.price}
-          </span>
+          </span> */}
         </div>
       </div>
       <div className="flex flex-1 flex-col p-5">

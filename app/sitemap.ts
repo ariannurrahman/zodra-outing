@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
 import { getAllPackagePaths } from "@/lib/packages";
+import { getAllGameSlugs } from "@/lib/games";
 
 const packageCategorySlugs = ["1-day", "2d1n", "3d2n"];
 const blogSlugs = ["manfaat-outbound-untuk-tim", "tips-memilih-lokasi-outbound"];
@@ -27,6 +28,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/games`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.75,
     },
   ];
 
@@ -60,5 +67,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticPages, ...packagePages, ...blogPages];
+  const gamePages: MetadataRoute.Sitemap = getAllGameSlugs().map((slug) => ({
+    url: `${baseUrl}/games/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.55,
+  }));
+
+  return [...staticPages, ...packagePages, ...blogPages, ...gamePages];
 }
