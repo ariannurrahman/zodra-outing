@@ -9,10 +9,10 @@ import { Logo } from "./logo";
 
 const navLinks = [
   { href: "/", label: "HOME" },
-  { href: "/tentang-kami", label: "TENTANG KAMI" },
   { href: "/paket-outbound", label: "PAKET OUTBOUND" },
   { href: "/games", label: "PERMAINAN" },
   { href: "/blog", label: "BLOG" },
+  { href: "/tentang-kami", label: "TENTANG KAMI" },
   { href: "/kontak", label: "KONTAK" },
 ];
 
