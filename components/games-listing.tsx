@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo } from "react";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ChevronRight } from "lucide-react";
@@ -119,20 +119,13 @@ export function GamesListing() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const [active, setActive] = useState<GameCategory | "all">("all");
 
-  useEffect(() => {
-    const k = searchParams.get("kategori");
-    if (k && isGameCategory(k)) {
-      setActive(k);
-    } else {
-      setActive("all");
-    }
-  }, [searchParams]);
+  const kategoriParam = searchParams.get("kategori");
+  const active: GameCategory | "all" =
+    kategoriParam && isGameCategory(kategoriParam) ? kategoriParam : "all";
 
   const applyCategory = useCallback(
     (cat: GameCategory | "all") => {
-      setActive(cat);
       const params = new URLSearchParams(searchParams.toString());
       if (cat === "all") {
         params.delete("kategori");
