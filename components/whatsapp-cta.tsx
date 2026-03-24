@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { contact } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import { ArrowUpRight } from "lucide-react";
 
 type Variant = "button" | "link" | "card";
 
@@ -81,36 +82,39 @@ export function WhatsAppCta({
       <a
         {...baseProps}
         className={cn(
-          "group relative flex h-full min-h-[220px] flex-col overflow-hidden rounded-2xl border border-emerald-200/80 bg-white p-6 text-left shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-300 hover:shadow-lg hover:shadow-emerald-950/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 dark:border-emerald-800/55 dark:bg-emerald-950/35 dark:hover:border-emerald-600/50 dark:focus-visible:ring-emerald-400",
+          "group flex flex-col rounded-2xl border border-teal-900/[0.07] bg-white p-5 text-left shadow-[0_1px_3px_rgba(13,148,136,0.07)] transition-all duration-200 hover:-translate-y-px hover:border-teal-500/35 hover:shadow-[0_12px_40px_-16px_rgba(20,184,166,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500/40 focus-visible:ring-offset-2 dark:border-white/9 dark:bg-teal-950/45 dark:shadow-[0_1px_3px_rgba(0,0,0,0.2)] dark:hover:border-teal-400/40 dark:hover:shadow-[0_12px_40px_-16px_rgba(0,0,0,0.45)] dark:focus-visible:ring-teal-400/40 dark:focus-visible:ring-offset-teal-950",
           className
         )}
       >
-        <div
-          className="absolute inset-x-0 top-0 h-1.5 bg-linear-to-r from-emerald-600 via-[#25D366] to-green-400"
-          aria-hidden
-        />
-        <div className="flex gap-4">
-          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#25D366]/11 ring-1 ring-[#25D366]/20 transition-transform duration-300 group-hover:scale-[1.03] dark:bg-[#25D366]/15 dark:ring-[#25D366]/25">
+        <div className="flex items-start gap-4">
+          <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-[#25D366]/12 transition-transform duration-200 group-hover:scale-[1.02] dark:bg-[#25D366]/20">
             <Image
               src="/icon/whatsapp.png"
               alt=""
-              width={36}
-              height={36}
+              width={28}
+              height={28}
               className="shrink-0"
             />
           </div>
           <div className="min-w-0 flex-1 pt-0.5">
-            <h3 className="text-lg font-semibold tracking-tight text-emerald-950 dark:text-emerald-50">
+            <h3 className="text-[0.8125rem] font-semibold uppercase tracking-[0.12em] text-teal-800/70 dark:text-teal-300/80">
               WhatsApp
             </h3>
-            <p className="mt-1 text-sm tabular-nums leading-relaxed text-emerald-800/75 dark:text-emerald-200/80">
+            <p className="mt-1.5 text-base font-medium tabular-nums tracking-tight text-teal-950 dark:text-teal-50">
               {contact.phone}
+            </p>
+            <p className="mt-1 text-sm leading-snug text-teal-800/65 dark:text-teal-200/70">
+              Respon cepat untuk cek jadwal & paket
             </p>
           </div>
         </div>
-        <p className="mt-auto border-t border-emerald-100 pt-4 text-sm font-medium text-[#128C7E] dark:border-emerald-800/50 dark:text-[#4ade80]">
+        <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-teal-700 transition-colors group-hover:text-teal-800 dark:text-teal-400 dark:group-hover:text-teal-300">
           {label}
-        </p>
+          <ArrowUpRight
+            className="size-4 shrink-0 opacity-60 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100"
+            aria-hidden
+          />
+        </span>
       </a>
     );
   }

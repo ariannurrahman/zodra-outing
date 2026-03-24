@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { MountainSilhouette } from "@/components/mountain-silhouette";
 import { contact } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 
 const CUSTOM_PROPOSAL_MESSAGE =
   "Halo, saya ingin minta proposal custom untuk paket outbound sesuai budget kantor kami. Bisa dibantu?";
@@ -8,11 +9,14 @@ const CUSTOM_PROPOSAL_MESSAGE =
 interface CtaBannerProps {
   buttonText?: string;
   className?: string;
+  /** Match Kontak / teal-forward pages; default keeps emerald for rest of site */
+  palette?: "emerald" | "teal";
 }
 
 export function CtaBanner({
   buttonText = "Minta Proposal Custom",
   className,
+  palette = "emerald",
 }: CtaBannerProps) {
   const url = `${contact.whatsappUrl}?text=${encodeURIComponent(CUSTOM_PROPOSAL_MESSAGE)}`;
 
@@ -21,7 +25,14 @@ export function CtaBanner({
       id="cta-proposal"
       className={`mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 ${className ?? ""}`}
     >
-      <div className="relative overflow-hidden rounded-3xl bg-linear-to-b from-emerald-800 via-emerald-700 to-teal-800 px-8 py-14 text-center shadow-2xl shadow-emerald-950/30 sm:px-14 sm:py-20">
+      <div
+        className={cn(
+          "relative overflow-hidden rounded-3xl px-8 py-14 text-center shadow-2xl sm:px-14 sm:py-20",
+          palette === "teal"
+            ? "bg-linear-to-b from-teal-800 via-teal-700 to-cyan-900 shadow-teal-950/35"
+            : "bg-linear-to-b from-emerald-800 via-emerald-700 to-teal-800 shadow-emerald-950/30"
+        )}
+      >
         {/* Mountain silhouette */}
         <MountainSilhouette />
 
@@ -40,7 +51,12 @@ export function CtaBanner({
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-10 inline-flex items-center gap-3 rounded-full bg-white px-8 py-4 text-base font-bold text-emerald-700 shadow-lg ring-2 ring-white/10 transition-all hover:scale-105 hover:bg-emerald-50 hover:shadow-xl hover:shadow-emerald-900/20"
+            className={cn(
+              "mt-10 inline-flex items-center gap-3 rounded-full bg-white px-8 py-4 text-base font-bold shadow-lg ring-2 ring-white/10 transition-all hover:scale-105 hover:shadow-xl",
+              palette === "teal"
+                ? "text-teal-700 hover:bg-teal-50 hover:shadow-teal-900/25"
+                : "text-emerald-700 hover:bg-emerald-50 hover:shadow-emerald-900/20"
+            )}
           >
             <Image
               src="/icon/whatsapp.png"
