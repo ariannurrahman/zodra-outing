@@ -1,13 +1,20 @@
 import type { MetadataRoute } from "next";
+import { BLOGS } from "@/app/blog/constants";
 import { siteConfig } from "@/lib/site";
 import { getAllPackagePaths } from "@/lib/packages";
 import { getAllGameSlugs } from "@/lib/games";
 
 const packageCategorySlugs = ["1-day", "2d1n", "3d2n"];
-const blogSlugs = ["manfaat-outbound-untuk-tim", "tips-memilih-lokasi-outbound"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url;
+  const blogLastModified = BLOGS.reduce(
+    (latest, p) => {
+      const t = new Date(p.date).getTime();
+      return t > latest.getTime() ? new Date(p.date) : latest;
+    },
+    new Date(BLOGS[0]?.date ?? Date.now()),
+  );
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: new Date(), changeFrequency: "weekly", priority: 1 },
@@ -19,7 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/blog`,
-      lastModified: new Date(),
+      lastModified: blogLastModified,
       changeFrequency: "weekly",
       priority: 0.8,
     },
@@ -66,11 +73,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...packageDetailPages,
   ];
 
-  const blogPages: MetadataRoute.Sitemap = blogSlugs.map((slug) => ({
-    url: `${baseUrl}/blog/${slug}`,
-    lastModified: new Date(),
+  const blogPages: MetadataRoute.Sitemap = BLOGS.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.date),
     changeFrequency: "monthly" as const,
-    priority: 0.6,
+    priority: 0.65,
   }));
 
   const gamePages: MetadataRoute.Sitemap = getAllGameSlugs().map((slug) => ({

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "migrate:blog-blocks": "npx tsx scripts/migrate-blog-blocks.ts"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",

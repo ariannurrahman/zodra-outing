@@ -141,3 +141,30 @@
   animation: marquee 50s linear infinite;
   will-change: transform;
 }
+
+/* Blog article: WP HTML (prose utilities live on the component; see BlogHtml) */
+@layer components {
+  .blog-prose.prose h3 {
+    @apply mt-8 border-l-4 border-teal-600/45 pl-4 text-lg font-semibold tracking-tight text-teal-950 first:mt-0 dark:border-teal-400/50 dark:text-teal-50;
+  }
+
+  .blog-intro .blog-prose > p:first-of-type {
+    @apply text-base text-teal-950/90 sm:text-lg dark:text-teal-50/90;
+  }
+
+  .blog-related {
+    @apply my-8 rounded-xl border border-teal-600/25 bg-teal-50/60 px-4 py-4 dark:border-teal-600/30 dark:bg-teal-950/35 sm:px-5;
+  }
+
+  .blog-related-p {
+    @apply m-0 flex flex-wrap items-baseline gap-x-2 gap-y-1 text-sm leading-relaxed text-teal-950 dark:text-teal-50;
+  }
+
+  .blog-related-label {
+    @apply shrink-0 font-semibold text-teal-700 dark:text-teal-300;
+  }
+
+  .blog-related a {
+    @apply font-medium text-teal-800 underline-offset-2 hover:underline dark:text-teal-200;
+  }
+}
