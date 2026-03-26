@@ -4,6 +4,8 @@ import { siteConfig } from "@/lib/site";
 import { getAllPackagePaths } from "@/lib/packages";
 import { getAllGameSlugs } from "@/lib/games";
 
+export const dynamic = "force-static";
+
 const packageCategorySlugs = ["1-day", "2d1n", "3d2n"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
