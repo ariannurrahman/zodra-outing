@@ -15,8 +15,7 @@ import {
 
 export const metadata: Metadata = {
   title: "Kontak",
-  description:
-    "Hubungi Zodra Adventure untuk reservasi paket outing Bandung dan outbound. WhatsApp: 0895 1319 2579. Respons cepat.",
+  description: `Hubungi Zodra Adventure untuk reservasi paket outing Bandung dan outbound. WhatsApp: ${contact.whatsapp}. Respons cepat.`,
 };
 
 const WHATSAPP_MESSAGE =

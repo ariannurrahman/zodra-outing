@@ -1,6 +1,8 @@
 import { siteConfig } from "@/lib/site";
 import { contact } from "@/lib/constants";
 
+const baseUrl = siteConfig.url.replace(/\/$/, "");
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
@@ -9,8 +11,11 @@ const jsonLd = {
   url: siteConfig.url,
   telephone: contact.phone,
   email: contact.email,
+  image: `${baseUrl}/zodra.png`,
+  sameAs: [contact.facebookUrl, contact.instagramUrl],
   address: {
     "@type": "PostalAddress",
+    streetAddress: contact.address,
     addressRegion: "Jawa Barat",
     addressLocality: "Bandung",
     addressCountry: "ID",

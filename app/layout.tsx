@@ -31,11 +31,18 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     title: "Zodra Adventure | Outing & Outbound Bandung Profesional",
     description: siteConfig.description,
+    images: [
+      {
+        url: "/zodra.png",
+        alt: "Zodra Adventure — outing & outbound Bandung",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Zodra Adventure | Outing & Outbound Bandung Profesional",
     description: siteConfig.description,
+    images: ["/zodra.png"],
   },
   robots: {
     index: true,
